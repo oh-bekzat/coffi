@@ -1,0 +1,114 @@
+{
+  "expo": {
+    "name": "COFFI",
+    "slug": "coffi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "coffi",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "ios": {
+      "bundleIdentifier": "dev.ohbekzat.coffi",
+      "buildNumber": "1",
+      "appleTeamId": "B5L3A4MN7F",
+      "displayName": "COFFI",
+      "entitlements": {
+        "aps-environment": "development"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "We need your location to find nearest coffee shops. Нам нужна геолокация для поиска ближайших кофеен",
+        "UIBackgroundModes": [
+          "remote-notification",
+          "remote-notification"
+        ],
+        "NSCameraUsageDescription": "We need camera access to scan QR codes to take your order. Нам нужно разрешение на использование камеры для сканирования QR-кодов для получения заказа",
+        "NSUserNotificationUsageDescription": "We'll send you updates about your orders. Мы будем отправлять вам обновления о ваших заказах",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true,
+          "NSExceptionDomains": {
+            "91.147.93.227": {
+              "NSTemporaryExceptionAllowsInsecureHTTPLoads": true
+            }
+          }
+        },
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "supportsTablet": true,
+      "googleServicesFile": "./GoogleService-Info.plist"
+    },
+    "android": {
+      "label": "COFFI",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCRpcKb-rlY2WiTpp67VbxQV-4_TOV7Ft8"
+        }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "POST_NOTIFICATIONS"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "dev.ohbekzat.coffi",
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 10,
+      "newArchEnabled": false,
+      "compileSdkVersion": 35,
+      "targetSdkVersion": 35,
+      "buildToolsVersion": "35.0.0",
+      "usesCleartextTraffic": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-notifications"
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "flipper": false,
+            "useFrameworks": "static"
+          },
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "9c5f3b91-7f9a-4f33-8e93-e66a55084155"
+      }
+    },
+    "owner": "ohbekzat"
+  }
+}
