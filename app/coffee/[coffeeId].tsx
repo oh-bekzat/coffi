@@ -170,53 +170,59 @@ const CoffeeDetails = () => {
 
   const openBottomSheet = useCallback((additiveType: CoffeeAdditive) => {
     openSheet(
-      <View className="flex justify-center items-center mt-[24px] px-[20px]">
+      <View className="mt-[24px] px-[24px] h-[300px]">
         <Text className="text-mono_500 text-[14px] text-center mb-[22px]">
           Выбор добавки
         </Text>
-        <Text className="text-white font-semibold text-[20px] leading-[22px] mb-[22px]">Выберите {formatType(additiveType.type).toLowerCase()}:</Text>
-        <ScrollableContainer>
-          <FlatList
-            data={additiveType.additives}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <View>
-                <TouchableOpacity 
-                  className={`mx-[20px] mb-[5px] rounded-full h-[80px] w-[80px] overflow-hidden ${
-                    selectedAdditives[additiveType.type] === item.id ? 'border-[4px] border-blue_500' : ''
-                  }`}
-                  onPress={() => {
-                    setSelectedAdditives(prev => {
-                      const newAdditives = { ...prev };
-                      if (prev[additiveType.type] === item.id) {
-                        delete newAdditives[additiveType.type];
-                      } else {
-                        newAdditives[additiveType.type] = item.id;
-                      }
-                      return newAdditives;
-                    });
-                    closeSheet();
-                  }}
-                >
-                  {item.attachmentUrls.length > 0 && (
-                    <Image
-                      source={{ uri: `${item.attachmentUrls?.[0]}` }}
-                      style={{
-                        width: '100%',
-                        height: '100%'
-                      }}
-                      resizeMode="cover"
-                    />
-                  )}
-                </TouchableOpacity>
-                <Text className="text-white text-[14px] text-center">{item.name}</Text>
-                <Text className="text-mono_200 text-[14px] text-center">{item.price} ₸</Text>
-              </View>
-            )}
-          />
-        </ScrollableContainer>
+        <Text className="text-white font-semibold text-[20px] leading-[22px] mb-[22px] text-center">
+          Выберите {formatType(additiveType.type).toLowerCase()}:
+        </Text>
+        
+        <View className="flex-1 justify-center">
+          <ScrollableContainer>
+            <FlatList
+              data={additiveType.additives}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ paddingHorizontal: 4 }}
+              renderItem={({ item }) => (
+                <View className="items-center">
+                  <TouchableOpacity 
+                    className={`mx-[20px] mb-[5px] rounded-full h-[80px] w-[80px] overflow-hidden ${
+                      selectedAdditives[additiveType.type] === item.id ? 'border-[4px] border-blue_500' : ''
+                    }`}
+                    onPress={() => {
+                      setSelectedAdditives(prev => {
+                        const newAdditives = { ...prev };
+                        if (prev[additiveType.type] === item.id) {
+                          delete newAdditives[additiveType.type];
+                        } else {
+                          newAdditives[additiveType.type] = item.id;
+                        }
+                        return newAdditives;
+                      });
+                      closeSheet();
+                    }}
+                  >
+                    {item.attachmentUrls.length > 0 && (
+                      <Image
+                        source={{ uri: `${item.attachmentUrls?.[0]}` }}
+                        style={{
+                          width: '100%',
+                          height: '100%'
+                        }}
+                        resizeMode="cover"
+                      />
+                    )}
+                  </TouchableOpacity>
+                  <Text className="text-white text-[14px] text-center">{item.name}</Text>
+                  <Text className="text-mono_200 text-[14px] text-center">{item.price} ₸</Text>
+                </View>
+              )}
+            />
+          </ScrollableContainer>
+        </View>
       </View>
     );
   }, [selectedAdditives, closeSheet, openSheet]);

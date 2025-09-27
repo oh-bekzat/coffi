@@ -37,30 +37,35 @@ const MenuSelection = ({ cafe, onClose }: MenuSelectionProps) => {
   };
 
   return (
-    <View className="flex justify-center items-center mt-[24px] px-[20px]">
-      <Text className="text-white font-semibold text-[20px] leading-[22px] mb-[22px]">
+    <View className="mt-[24px] px-[24px] h-[350px]">
+      <Text className="text-white font-semibold text-[20px] leading-[22px] mb-[22px] text-center">
         Добавить к заказу:
       </Text>
-      <ScrollableContainer className="mb-[24px]">
-        <FlatList
-          data={availableMenuItems}
-          keyExtractor={(item) => item.id}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <TouchableOpacity 
-              onPress={() => handleAddFood(item.id)}
-              className="mr-3"
-            >
-              <BagFoodCard
-                food={item}
-                isHidable={false}
-                fromMenu={true}
-              />
-            </TouchableOpacity>
-          )}
-        />
-      </ScrollableContainer>
+      
+      <View className="flex-1 justify-center">
+        <ScrollableContainer className="mb-[24px]">
+          <FlatList
+            data={availableMenuItems}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingHorizontal: 4 }}
+            renderItem={({ item }) => (
+              <TouchableOpacity 
+                onPress={() => handleAddFood(item.id)}
+                className="mr-3"
+              >
+                <BagFoodCard
+                  food={item}
+                  isHidable={false}
+                  fromMenu={true}
+                />
+              </TouchableOpacity>
+            )}
+          />
+        </ScrollableContainer>
+      </View>
+      
       <CustomButton 
         text="Пропустить" 
         onPress={onClose}
