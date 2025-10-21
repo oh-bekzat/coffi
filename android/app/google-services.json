@@ -1,40 +1,21 @@
 {
   "project_info": {
-    "project_number": "392168195352",
-    "project_id": "lic-notif",
-    "storage_bucket": "lic-notif.firebasestorage.app"
+    "project_number": "995113626025",
+    "project_id": "coffi-dac08",
+    "storage_bucket": "coffi-dac08.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:392168195352:android:e47dcd423b76146a13ca6d",
+        "mobilesdk_app_id": "1:995113626025:android:b5fe815ae170a13a713cb8",
         "android_client_info": {
-          "package_name": "com.ohbekzat.lic"
+          "package_name": "dev.ohbekzat.coffi"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBZEe3Q3tar1_qAaDnyDs9rL-c4OQE3Mw8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:392168195352:android:da4cc3ba41ee1e3213ca6d",
-        "android_client_info": {
-          "package_name": "dev.ohbekzat.lic"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBZEe3Q3tar1_qAaDnyDs9rL-c4OQE3Mw8"
+          "current_key": "AIzaSyDzqW_XMfm-59DKZyjwdNNsDFKztgsvYrU"
         }
       ],
       "services": {

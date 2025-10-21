@@ -15,7 +15,7 @@ const BagIcon = () => {
 
   return (
       <TouchableOpacity className="w-[40px] h-[40px] bg-blue_500 rounded-full items-center justify-center" onPress={handleBagPress}>
-        {coffees.length > 0 || foods.length > 0 && <View className="absolute top-0 right-0 w-[17px] h-[17px] bg-red-500 rounded-full items-center justify-center">
+        {(coffees.length > 0 || foods.length > 0) && <View className="absolute top-0 right-0 w-[17px] h-[17px] bg-red-500 rounded-full items-center justify-center">
           <Text className="text-white text-[12px]">{coffees.length + foods.length}</Text>
         </View>}
         <Svg width="24" height="24" viewBox="0 0 24 24">

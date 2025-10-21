@@ -25,7 +25,7 @@ const CoffeeDetails = () => {
   const { openSheet, closeSheet } = useBottomSheetStore();
   const coffeeId = Array.isArray(rawCoffeeId) ? rawCoffeeId[0] : rawCoffeeId;
   const cafeId = Array.isArray(rawCafeId) ? rawCafeId[0] : rawCafeId;
-  const { cafe: bagCafe } = useBagStore();
+  const { cafe: bagCafe, coffees, foods } = useBagStore();
   const { preferredCafe } = useCafeStore();
 
   const currentCafe = preferredCafe || bagCafe;
@@ -389,6 +389,17 @@ const CoffeeDetails = () => {
       <View className="absolute bottom-0 left-0 right-0 bg-transparent">
         <SafeAreaView edges={['bottom']}>
           <View className="items-center px-[24px] gap-[12px]">
+            {(coffees.length > 0 || foods.length > 0) && (
+              <CustomButton 
+                text="Перейти в корзину"
+                onPress={() => {
+                  if (requireAuth()) {
+                    router.push('/bag');
+                  }
+                }}
+              >
+              </CustomButton>
+            )}
             <CustomButton 
               text="Заказать" 
               onPress={() => handleAddToBag(true)}

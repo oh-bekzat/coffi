@@ -31,9 +31,6 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="lic"/>
-        <data android:scheme="dev.ohbekzat.lic"/>
-        <data android:scheme="exp+lic"/>
         <data android:scheme="coffi"/>
         <data android:scheme="dev.ohbekzat.coffi"/>
         <data android:scheme="exp+coffi"/>

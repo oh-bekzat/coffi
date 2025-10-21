@@ -16,11 +16,12 @@ import CustomButton from "../../components/CustomButton";
 import RefreshableView from "../../components/RefreshableView";
 import { useQueryClient } from "@tanstack/react-query";
 import { MenuItem } from "../../types/menu";
+import { requireAuth } from "../../utils/authHelpers";
 
 const Coffee = () => {
   const { openSheet, closeSheet } = useBottomSheetStore();
   const { preferredCafe } = useCafeStore();
-  const { cafe: bagCafe } = useBagStore();
+  const { cafe: bagCafe, coffees: bagCoffees, foods: bagFoods } = useBagStore();
   const [hasAdded, setHasAdded] = useState(false);
   const queryClient = useQueryClient();
 
@@ -386,11 +387,15 @@ const Coffee = () => {
         )}
       </RefreshableView>
 
-      {hasAdded && (
+      {(bagCoffees.length > 0 || bagFoods.length > 0) && (
         <SafeAreaView edges={['bottom']} className="px-[24px] py-[24px] items-center">
           <CustomButton
             text="Перейти в корзину" 
-            onPress={() => router.push("/bag")}
+            onPress={() => {
+              if (requireAuth()) {
+                router.push("/bag");
+              }
+            }}
           />
         </SafeAreaView>
       )}
